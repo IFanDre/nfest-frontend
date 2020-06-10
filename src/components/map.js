@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
-// import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 export default class Location extends Component {
     state = {
@@ -14,6 +14,7 @@ export default class Location extends Component {
         const position = [this.state.lat, this.state.lng];
         return (
             <div>
+                <div>Hi</div>
                 <Map center={position} zoom={this.state.zoom}>
                     <TileLayer
                         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

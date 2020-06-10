@@ -1,53 +1,34 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Typography, Toolbar, Tabs, Tab, Box, IconButton, Grid } from '@material-ui/core';
-import Paper from "@material-ui/core/Paper";
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import logo from '../logo.gif';
-
-function a11yProps(index) {
-    return {
-        id: `simple-tab-${index}`,
-        'aria-controls': `simple-tabpanel-${index}`,
-    };
-}
 
 const useStyles = makeStyles({
     root: {
-        flexGrow: 1,
-    },
-    button: {
+        width: '60%',
+        margin: "auto",
+        background: "azure",
 
-    }
+    },
 });
-export default function Menu() {
+
+export default function LabelBottomNavigation() {
     const classes = useStyles();
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = React.useState('logo');
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
     return (
-        <Paper className={classes.root}>
-
-            <Tabs
-                value={value}
-                indicatorColor="primary"
-                textColor="primary"
-                onChange={handleChange}
-                aria-label="disabled tabs example"
-                centered
-            >
-                <Link to={'/'} >
-                    <img width='50px' height='50px' src={logo}  alt="logo" />
-                </Link>
-                <Link to={'/about'}><Tab label="About" /></ Link>
-                <Link to={'/contact'}><Tab label="Contact" /></ Link>
-                <Link to={'/auth'}><Tab label="Login" /></ Link>
-                <Link to={'/edition'}><Tab label="Edition" /></ Link>
-
-            </Tabs>
-        </Paper>
+        <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
+            <BottomNavigationAction component={Link} label="Home" value='logo' to={'/'} />
+            <BottomNavigationAction component={Link} label="About" value="about" to={'/about'} showLabel/>
+            <BottomNavigationAction component={Link} label="Contact" value="contact" to={'/contact'} showLabel/>
+            <BottomNavigationAction component={Link} label="Login" value="login" to={'/auth'} showLabel/>
+            <BottomNavigationAction component={Link} label="Edition" value="edition" to={'/edition'} showLabel/>
+        </BottomNavigation>
     );
 }

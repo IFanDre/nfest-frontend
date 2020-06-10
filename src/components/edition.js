@@ -86,6 +86,7 @@ export default function VerticalTabs() {
                 Nu avem wireless sau curent, însă voluntarii noştrii au creat sisteme de iluminat originale pe care le puteţi avea şi dumneavoastră acasă. Totuşi într-o locaţie la câteva minute distanţă puteţi să încărcaţi telefoanele, să folosiţi wireless-ul, să vizionaţi tv sau să savuraţi o cafea/ceai la umbra naturală a viţei de vie.
             </TabPanel>
         </div>
+
     );
 }
 
